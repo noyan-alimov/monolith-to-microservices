@@ -1,0 +1,1 @@
+docker build -t noyan09/udagram-api-users .
