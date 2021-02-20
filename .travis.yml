@@ -16,8 +16,8 @@ script:
   - npm i # install dependencies
   - tsc # build the project
   - docker --version
-  - docker build -t noyan09/udagram-api-users . # build the docker image
+  - docker build -t "$DOCKER_USERNAME"/udagram-api-users . # build the docker image
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # login to docker hub
-  - docker push noyan09/udagram-api-users # push the image to docker hub
+  - docker push "$DOCKER_USERNAME"/udagram-api-users # push the image to docker hub
