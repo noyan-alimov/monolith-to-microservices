@@ -43,3 +43,6 @@ venv/
 
 # Run docker container
 runDockerContainer.sh
+
+# k8s secret
+secret.yml
