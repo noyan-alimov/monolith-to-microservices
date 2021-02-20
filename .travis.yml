@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - 13
+
+services:
+  - docker
+
+install:
+  - npm i -g typescript
+
+before_script:
+  - echo "no tests"
+
+script:
+  - cd udagram-api-users # cd into project directory
+  - npm i # install dependencies
+  - tsc # build the project
+  - docker --version
+  - docker build -t noyan09/udagram-api-users . # build the docker image
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # login to docker hub
+  - docker push noyan09/udagram-api-users # push the image to docker hub
