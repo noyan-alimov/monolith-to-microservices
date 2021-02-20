@@ -8,6 +8,6 @@ RUN npm i
 
 COPY www .
 
-EXPOSE 8082
+EXPOSE 8080
 
 CMD ["node", "server.js"]
