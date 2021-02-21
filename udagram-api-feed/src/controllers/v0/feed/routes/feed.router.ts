@@ -33,9 +33,7 @@ const uniqueId = Math.random();
 
 // Get all feed items
 console.log(
-	`${
-		new Date().toISOString
-	} -- get all feed items request STARTED -- ${uniqueId}`
+	`${new Date().toISOString()} -- get all feed items request STARTED -- ${uniqueId}`
 );
 router.get('/', async (req: Request, res: Response) => {
 	const items = await FeedItem.findAndCountAll({ order: [['id', 'DESC']] });
@@ -47,9 +45,7 @@ router.get('/', async (req: Request, res: Response) => {
 	res.send(items);
 });
 console.log(
-	`${
-		new Date().toISOString
-	} -- get all feed items request FINISHED -- ${uniqueId}`
+	`${new Date().toISOString()} -- get all feed items request FINISHED -- ${uniqueId}`
 );
 
 // Get a feed resource

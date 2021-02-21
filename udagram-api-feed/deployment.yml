@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: udagram-api-feed
-          image: noyan09/udagram-api-feed:latest
+          image: noyan09/udagram-api-feed
           ports:
             - containerPort: 8080
           env:
