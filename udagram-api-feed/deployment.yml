@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: udagram-api-feed
-          image: noyan09/udagram-api-feed
+          image: noyan09/udagram-api-feed:latest
           ports:
             - containerPort: 8080
           env:
@@ -52,13 +52,13 @@ spec:
                   key: POSTGRES_HOST
             - name: POSTGRES_PASSWORD
               valueFrom:
-                secretKeyRef:
-                  name: env-secret
+                configMapKeyRef:
+                  name: env-config
                   key: POSTGRES_PASSWORD
             - name: POSTGRES_USERNAME
               valueFrom:
-                secretKeyRef:
-                  name: env-secret
+                configMapKeyRef:
+                  name: env-config
                   key: POSTGRES_USERNAME
           volumeMounts:
             - name: aws-secret

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-api-users
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: udagram-api-users
@@ -52,13 +52,13 @@ spec:
                   key: POSTGRES_HOST
             - name: POSTGRES_PASSWORD
               valueFrom:
-                secretKeyRef:
-                  name: env-secret
+                configMapKeyRef:
+                  name: env-config
                   key: POSTGRES_PASSWORD
             - name: POSTGRES_USERNAME
               valueFrom:
-                secretKeyRef:
-                  name: env-secret
+                configMapKeyRef:
+                  name: env-config
                   key: POSTGRES_USERNAME
           volumeMounts:
             - name: aws-secret

@@ -29,7 +29,14 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
 	});
 }
 
+const uniqueId = Math.random();
+
 // Get all feed items
+console.log(
+	`${
+		new Date().toISOString
+	} -- get all feed items request STARTED -- ${uniqueId}`
+);
 router.get('/', async (req: Request, res: Response) => {
 	const items = await FeedItem.findAndCountAll({ order: [['id', 'DESC']] });
 	items.rows.map(item => {
@@ -39,6 +46,11 @@ router.get('/', async (req: Request, res: Response) => {
 	});
 	res.send(items);
 });
+console.log(
+	`${
+		new Date().toISOString
+	} -- get all feed items request FINISHED -- ${uniqueId}`
+);
 
 // Get a feed resource
 router.get('/:id', async (req: Request, res: Response) => {
